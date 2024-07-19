@@ -12,11 +12,11 @@ let pessoa : {
     nome: string;
     idade: number;
     altura: number;
-    date: date;
+    data: Date;
 }
 
 pessoa = {
-    nome: 'felipe',idade: 26, altura: 1.50, date: '1997/12/19'
+    nome: 'felipe',idade: 26, altura: 1.67, data: new Date('1997/12/19')
 };
 
 console.log(pessoa);

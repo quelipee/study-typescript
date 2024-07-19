@@ -7,6 +7,6 @@ function addnumber(numb1, numb2) {
 // console.log(addnumber(1,1));
 let pessoa;
 pessoa = {
-    nome: 'felipe', idade: 26, altura: 1.50, date: '1997/12/19'
+    nome: 'felipe', idade: 26, altura: 1.67, data: new Date('1997/12/19')
 };
 console.log(pessoa);
