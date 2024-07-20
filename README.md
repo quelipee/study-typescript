@@ -78,11 +78,184 @@ console.log('OCTAL...:', numbBig3);
 console.log('BINARIO...:', numbBig4);
 ````
 
-### Saida 
-
 ![img_4.png](img_4.png)
 
 <p>bigInt é diferente de number, eles sao tipos primitios que lidam com numeros 
 completamentes distintos, por exemplo se for uma aplicação que lida com valores
 você irá utilizar o bigInt, e se não for numeros não tão expressivos você irá
 utilizar o number</p>
+
+## UTILIZANDO STRING 
+
+````ts
+let nomePessoa : string = 'felipe';
+let nomecompleto : string = `Seja bem vindo ${nomePessoa}`;
+console.log(nomecompleto);
+````
+
+![img_5.png](img_5.png)
+
+![img_6.png](img_6.png)
+
+## UTILIZANDO ARRAY'S
+
+````ts
+let frutas:Array<string> = ['maça','banana','abacaxi'];
+
+console.log(frutas);
+````
+
+
+![img_7.png](img_7.png)
+
+### push
+
+<p>ele inseri um novo elemento no fim da array</p>
+
+````ts
+let idiomas: Array<string> = ['portugues','ingles','espanhol','frances'];
+
+idiomas.push('mandarim');
+
+console.log(idiomas);
+````
+
+![img_8.png](img_8.png)
+
+### VER O TAMANHO DA ARRAY
+
+````ts
+let idiomas: Array<string> = ['portugues','ingles','espanhol','frances'];
+
+console.log(idiomas.length);
+````
+
+![img_9.png](img_9.png)
+
+### spread operator
+
+````ts
+let listaNumeros: Array<number> = [0,1,2,3,4,5];
+listaNumeros = [...listaNumeros,6,7,8,9];
+````
+
+![img_10.png](img_10.png)
+
+## UTILIZANDO FUNCTION E FOR
+
+````ts
+let linguagem: Array<string> = ['python','php','ts','c#'];
+
+function funcaoLinguagem(linguagens:Array<string>) {
+    for (let i = 0; i < linguagens.length; i++) {
+        console.log(linguagens[i]);
+    }
+}
+
+funcaoLinguagem(linguagem);
+````
+![img_11.png](img_11.png)
+
+## UTILIZANDO TUPLAS
+
+````ts
+let pessoa1: [string, string, number];
+pessoa1 = ['felipe', 'mateus', 26];
+console.log(pessoa1);
+````
+
+![img_12.png](img_12.png)
+
+## TUPLAS COM LABELS
+
+````ts
+let pessoa1: [nome:string, sobrenome:string, idade:number] = ['felipe', 'mateus', 26];
+````
+
+![img_16.png](img_16.png)
+
+## SPREAD OPERATOR COM TUPLAS
+
+````ts
+let listaFrutas: [string, ...string[]] = ['maça','banana','abacaxi'];
+console.log(...listaFrutas);
+````
+
+![img_13.png](img_13.png)
+
+## TUPLAS COM FUNÇÕES
+
+````ts
+function listarPessoas(nomes: string[],idades:number[]):(string | number)[] {
+    return [...nomes, ...idades];
+}
+let resultado = listarPessoas(['felipe','regina'],[26,19]);
+
+console.log(resultado);
+````
+
+![img_17.png](img_17.png)
+
+## LABELED TUPLES COM SPREAD OPERATOR NUMA FUNÇÃO
+
+````ts
+type Nome = | [primeiroNome: string, sobrenome:string]
+    | [primeiroNome: string, nomeMeio:string ,sobrenome:string];
+
+function criarPessoa(...nome:Nome){
+    return [...nome];
+}
+
+console.log(criarPessoa('felipe','mateus'));
+````
+
+![img_18.png](img_18.png)
+
+## ENUMS
+
+![img_19.png](img_19.png)
+
+````ts
+enum Idioma {
+    Portugues,
+    Espanhol,
+    Ingles,
+    Frances
+}
+console.log(Idioma);
+````
+
+![img_20.png](img_20.png)
+
+````ts
+enum Idioma {
+    Portugues = 'PT-BR',
+    Espanhol = 'ES',
+    Ingles = 'EN',
+    Frances = 'FR'
+}
+console.log(Idioma.Portugues);
+````
+
+![img_21.png](img_21.png)
+
+### EXEMPLO 2
+
+````ts
+enum Tarefa {
+    Todo,
+    Progress,
+    Done,
+}
+
+const concluidaTarefa = {
+    id : 1,
+    status: Tarefa.Done,
+    descricao: 'Parabens! Tarefa concluida com sucesso!',
+};
+
+if (concluidaTarefa.status === Tarefa.Done) {
+    console.log('Enviar e-mail: Tarefa Concluida!');
+}
+````
+![img_22.png](img_22.png)
