@@ -2,7 +2,7 @@
 
 # tsconfig.json
 
-![img.png](img.png)
+![img.png](img/img.png)
 
 ### include
 <p>o include é as pastas onde o tsc deve procurar para encontrar seus arquivos typescript</p>
@@ -40,7 +40,7 @@ console.log(addnumber(1,1));
 console.log('HEXADECIMAL...:', typeof (numb2));
 ````
 
-![img_3.png](img_3.png)
+![img_3.png](img/img_3.png)
 
 ## Exemplos de como usar number em ts
 
@@ -58,11 +58,11 @@ console.log('BINARIO...:', numb4);
 
 ### Saida
 
-![img_2.png](img_2.png)
+![img_2.png](img/img_2.png)
 
 ## BIGINT
 
-![img_1.png](img_1.png)
+![img_1.png](img/img_1.png)
 
 <p>para sinalizar que é um numero grande, todo final do conteudo vai um (n) para indicar que é um bigint</p>
 
@@ -78,7 +78,7 @@ console.log('OCTAL...:', numbBig3);
 console.log('BINARIO...:', numbBig4);
 ````
 
-![img_4.png](img_4.png)
+![img_4.png](img/img_4.png)
 
 <p>bigInt é diferente de number, eles sao tipos primitios que lidam com numeros 
 completamentes distintos, por exemplo se for uma aplicação que lida com valores
@@ -93,9 +93,9 @@ let nomecompleto : string = `Seja bem vindo ${nomePessoa}`;
 console.log(nomecompleto);
 ````
 
-![img_5.png](img_5.png)
+![img_5.png](img/img_5.png)
 
-![img_6.png](img_6.png)
+![img_6.png](img/img_6.png)
 
 ## UTILIZANDO ARRAY'S
 
@@ -106,7 +106,7 @@ console.log(frutas);
 ````
 
 
-![img_7.png](img_7.png)
+![img_7.png](img/img_7.png)
 
 ### push
 
@@ -120,7 +120,7 @@ idiomas.push('mandarim');
 console.log(idiomas);
 ````
 
-![img_8.png](img_8.png)
+![img_8.png](img/img_8.png)
 
 ### VER O TAMANHO DA ARRAY
 
@@ -130,7 +130,7 @@ let idiomas: Array<string> = ['portugues','ingles','espanhol','frances'];
 console.log(idiomas.length);
 ````
 
-![img_9.png](img_9.png)
+![img_9.png](img/img_9.png)
 
 ### spread operator
 
@@ -139,7 +139,7 @@ let listaNumeros: Array<number> = [0,1,2,3,4,5];
 listaNumeros = [...listaNumeros,6,7,8,9];
 ````
 
-![img_10.png](img_10.png)
+![img_10.png](img/img_10.png)
 
 ## UTILIZANDO FUNCTION E FOR
 
@@ -154,7 +154,7 @@ function funcaoLinguagem(linguagens:Array<string>) {
 
 funcaoLinguagem(linguagem);
 ````
-![img_11.png](img_11.png)
+![img_11.png](img/img_11.png)
 
 ## UTILIZANDO TUPLAS
 
@@ -164,7 +164,7 @@ pessoa1 = ['felipe', 'mateus', 26];
 console.log(pessoa1);
 ````
 
-![img_12.png](img_12.png)
+![img_12.png](img/img_12.png)
 
 ## TUPLAS COM LABELS
 
@@ -172,7 +172,7 @@ console.log(pessoa1);
 let pessoa1: [nome:string, sobrenome:string, idade:number] = ['felipe', 'mateus', 26];
 ````
 
-![img_16.png](img_16.png)
+![img_16.png](img/img_16.png)
 
 ## SPREAD OPERATOR COM TUPLAS
 
@@ -181,7 +181,7 @@ let listaFrutas: [string, ...string[]] = ['maça','banana','abacaxi'];
 console.log(...listaFrutas);
 ````
 
-![img_13.png](img_13.png)
+![img_13.png](img/img_13.png)
 
 ## TUPLAS COM FUNÇÕES
 
@@ -194,7 +194,7 @@ let resultado = listarPessoas(['felipe','regina'],[26,19]);
 console.log(resultado);
 ````
 
-![img_17.png](img_17.png)
+![img_17.png](img/img_17.png)
 
 ## LABELED TUPLES COM SPREAD OPERATOR NUMA FUNÇÃO
 
@@ -209,11 +209,11 @@ function criarPessoa(...nome:Nome){
 console.log(criarPessoa('felipe','mateus'));
 ````
 
-![img_18.png](img_18.png)
+![img_18.png](img/img_18.png)
 
 ## ENUMS
 
-![img_19.png](img_19.png)
+![img_19.png](img/img_19.png)
 
 ````ts
 enum Idioma {
@@ -225,7 +225,7 @@ enum Idioma {
 console.log(Idioma);
 ````
 
-![img_20.png](img_20.png)
+![img_20.png](img/img_20.png)
 
 ````ts
 enum Idioma {
@@ -237,7 +237,7 @@ enum Idioma {
 console.log(Idioma.Portugues);
 ````
 
-![img_21.png](img_21.png)
+![img_21.png](img/img_21.png)
 
 ### EXEMPLO 2
 
@@ -258,4 +258,4 @@ if (concluidaTarefa.status === Tarefa.Done) {
     console.log('Enviar e-mail: Tarefa Concluida!');
 }
 ````
-![img_22.png](img_22.png)
+![img_22.png](img/img_22.png)
