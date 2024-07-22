@@ -112,10 +112,71 @@ valorVariavel = 123;
 valorVariavel = {};
 valorVariavel = 'oi eae';
 let valor;
-let valor1 = valor;
+// let valor1: boolean = valor;
 let algumacoisaAny;
 let algumacoisaUnknown;
-console.log(algumacoisaAny.toFixed(2));
+// console.log(algumacoisaAny.toFixed(2));
 if (typeof algumacoisaUnknown === 'number') {
     console.log(algumacoisaUnknown.toFixed());
 }
+function logError(errorMessage) {
+    // console.log(errorMessage);
+    // return errorMessage;
+}
+logError('Required field - name!');
+const logErrorExample2 = (errorMessage) => {
+    // console.log(errorMessage);
+};
+logErrorExample2('Required field - SurName!');
+let variavelExemploVoid;
+// variavelExemploVoid = 1; //error
+variavelExemploVoid = null;
+variavelExemploVoid = undefined;
+// console.log(variavelExemploVoid);
+let variavelTestNull = null;
+// console.log(variavelTestNull);
+// console.log(typeof variavelTestNull);
+let variavelTesteUndefied;
+// console.log(variavelTesteUndefied);
+// console.log(typeof variavelTesteUndefied);
+// == compara resultado, === compara valor e o tipo
+// console.log('exemplo 1:', null == undefined);
+// console.log('exemplo 2:', null === undefined);
+function error(message) {
+    throw new Error(message);
+}
+// console.log(error('erro de mensagem'));
+function rejectMessage() {
+    return error('Error de mensagem - 02');
+}
+// console.log(rejectMessage());
+const loopInfinity = function loop() {
+    while (true) {
+        console.log('oi');
+    }
+};
+// console.log(loopInfinity());
+// const algumaCoisaVoid : void = null;
+// const algumaCoisaNever : never = null;
+const pessoa12 = {
+    nome: 'felipe',
+    sobrenome: 'mateus',
+    idade: 26,
+    funcao: 'developer php',
+};
+function onboarding01(funcionario) {
+    return 'seja bem vindo ' + funcionario.nome;
+}
+function onboarding02(pessoa) {
+    return ('Seja bem vindo: ' + pessoa.nome + ' sua funcao aqui na empresa sera: ' + pessoa.funcao);
+}
+function onboarding03(pessoa) {
+    return ('Seja bem vindo: ' + pessoa.nome + ' sua funcao aqui na empresa sera: '
+        + pessoa.funcao + ' voce trabalhara com a linguagem :' + pessoa.linguagem);
+}
+function onboarding04(pessoa) {
+    return ('Seja bem vindo: ' + pessoa.nome + ' sua funcao aqui na empresa sera: '
+        + pessoa.funcao + ' voce trabalhara com a linguagem :' + pessoa.linguagem);
+}
+console.log(onboarding04({ nome: 'felipe', funcao: 'developer php',
+    linguagem: 'php', email: 'dsadas' }));
