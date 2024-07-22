@@ -259,3 +259,60 @@ if (concluidaTarefa.status === Tarefa.Done) {
 }
 ````
 ![img_22.png](img/img_22.png)
+
+## ANY EM TS
+
+![img_23.png](img/img_23.png)
+
+<p>o certo é saber quando usar o any, ao utilizar ele de qualquer jeito pode acontecer varios poblemas
+como este no exemplo acima, quando voce não coloca um tipo para sua variavel, ele vai vir como padrão any</p>
+
+````ts
+const formulario: {[campoFormulario:string]:any} = {
+    nome: 'felipe',
+    sobrenome: 'mateus',
+    idade: 26,
+}
+
+console.log(formulario.campoFormulario);
+````
+![img_24.png](img/img_24.png)
+
+## unknown
+
+<p>Se não souber qual tipo colocar o melhor 
+é colocar unknown</p>
+
+![img_26.png](img/img_26.png)
+
+![img_27.png](img/img_27.png)
+
+<p>nunca atribua o valor unknown algo que ja tem uma inferencia de outro tipo </p> 
+
+<p>isso pode dar erro. exemplo abaixo</p>
+
+````ts
+let valor: unknown;
+
+let valor1: boolean = valor;
+
+console.log(valor1);
+
+````
+
+![img_28.png](img/img_28.png)
+
+### diferença entre unknown e any
+
+````ts
+let algumacoisaAny: any;
+let algumacoisaUnknown: unknown;
+
+console.log(algumacoisaAny.toFixed(2));
+console.log(algumacoisaUnknown.toFixed(2));
+````
+
+<p>Como mostrado na imagem abaixo somente o unknown esta mostrando que contem erro, 
+ja o any não, por que ele nao vai te mostrar um erro em tempo de execução</p>
+
+![img_29.png](img/img_29.png)

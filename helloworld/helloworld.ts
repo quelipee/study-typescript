@@ -140,7 +140,45 @@ const concluidaTarefa = {
     descricao: 'Parabens! Tarefa concluida com sucesso!',
 };
 
-if (concluidaTarefa.status === Tarefa.Done) {
-    console.log('Enviar e-mail: Tarefa Concluida!');
+// if (concluidaTarefa.status === Tarefa.Done) {
+//     console.log('Enviar e-mail: Tarefa Concluida!');
+// }
+
+const a: any = 26;
+const b: Array<string> = ['felipe'];
+
+const result = a + b;
+
+let frase;
+
+frase = 'oiooo';
+
+const formulario: {[campoFormulario:string]:any} = {
+    nome: 'felipe',
+    sobrenome: 'mateus',
+    idade: 26,
 }
+
+let valorVariavel : unknown;
+
+valorVariavel = true;
+valorVariavel = 123;
+valorVariavel = {};
+valorVariavel = 'oi eae';
+
+
+let valor: unknown;
+
+let valor1: boolean = valor;
+
+let algumacoisaAny: any;
+let algumacoisaUnknown: unknown;
+
+console.log(algumacoisaAny.toFixed(2));
+if (typeof algumacoisaUnknown === 'number') {
+    console.log(algumacoisaUnknown.toFixed());
+}
+
+
+
 
