@@ -13,11 +13,11 @@
 ### molude
 <p>para qual sistema de module que o tsc deve compilar o seu codigo</p>
 
-## hello wordl
+## hello world
 
 ````typescript
 
-let mensagem: string = 'hello wordl';// definindo a variavel e o tipo dela
+let mensagem: string = 'hello world';// definindo a variavel e o tipo dela
 
 console.log(mensagem);
 ````
