@@ -178,5 +178,31 @@ function onboarding04(pessoa) {
     return ('Seja bem vindo: ' + pessoa.nome + ' sua funcao aqui na empresa sera: '
         + pessoa.funcao + ' voce trabalhara com a linguagem :' + pessoa.linguagem);
 }
-console.log(onboarding04({ nome: 'felipe', funcao: 'developer php',
-    linguagem: 'php', email: 'dsadas' }));
+function onboarding05(pessoa) {
+    return ('Seja bem vindo: ' + pessoa.nome + ' sua funcao aqui na empresa sera: '
+        + pessoa.funcao + ' voce trabalhara com a linguagem :' + pessoa.linguagem +
+        'seu email sera:' + pessoa.email);
+}
+const filho = {
+    nome: 'Felipe',
+    sobrenome: 'Mateus',
+    idade: 26
+};
+const usuario = {
+    nome: 'Felipe',
+    email: 'fe@gmail.com'
+};
+const admin = {
+    nome: 'Felipe',
+    email: 'fe@gmail.com',
+    admin: true
+};
+function acessarSistema(usuario) {
+    return usuario;
+}
+console.log(acessarSistema(usuario));
+console.log(acessarSistema(admin));
+// function acessar_sistema(usuario:Usuario):Usuario{
+//     return usuario;
+// }
+// console.log(acessar_sistema(usuario));

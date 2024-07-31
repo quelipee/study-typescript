@@ -280,7 +280,91 @@ function onboarding04(pessoa:Pessoa04): string {
     )
 }
 
-console.log(onboarding04({nome: 'felipe',funcao:'developer php',
-    linguagem:'php',email:'dsadas'}));
+// console.log(onboarding04({nome: 'felipe',funcao:'developer php',
+//     linguagem:'php',email:'dsadas'}));
+
+interface Pessoa05 {
+    nome: string;
+    funcao: string;
+    linguagem:string;
+    readonly email:string;
+}
+
+function onboarding05(pessoa:Pessoa05): string {
+    return (
+        'Seja bem vindo: ' + pessoa.nome + ' sua funcao aqui na empresa sera: '
+        + pessoa.funcao + ' voce trabalhara com a linguagem :' + pessoa.linguagem +
+            'seu email sera:' + pessoa.email
+    )
+}
+
+// console.log(onboarding05({nome: 'felipe',funcao:'developer php',
+//     linguagem:'php',email:'dsadas@gmail.com'}));
+
+interface Mae{
+    nome:string;
+}
+
+interface Pai{
+    sobrenome:string;
+}
+
+interface Filho extends Mae, Pai{
+    idade:number;
+}
+
+const filho: Filho = {
+    nome: 'Felipe',
+    sobrenome: 'Mateus',
+    idade:26
+}
+
+// console.log(filho);
+
+interface Cachorro{
+    tipo:string;
+}
+
+interface Gato{
+    tipo:string;
+}
+
+type Animal = Cachorro & Gato;
+
+type Usuario = {
+    nome: string;
+    email:string;
+}
+
+type Admin = {
+    nome: string;
+    email: string;
+    admin: true;
+}
+
+const usuario: Usuario = {
+    nome: 'Felipe',
+    email: 'fe@gmail.com'
+}
+
+const admin: Admin = {
+    nome: 'Felipe',
+    email: 'fe@gmail.com',
+    admin: true
+}
+
+function acessarSistema<T>(usuario:T):T{
+    return usuario;
+}
+
+console.log(acessarSistema<Usuario>(usuario));
+console.log(acessarSistema<Admin>(admin));
+
+// function acessar_sistema(usuario:Usuario):Usuario{
+//     return usuario;
+// }
+
+// console.log(acessar_sistema(usuario));
+
 
 

@@ -500,3 +500,64 @@ function onboarding04(pessoa:Pessoa04): string {
 console.log(onboarding04({nome: 'felipe',funcao:'developer php', 
     linguagem:'php',email:'dsadas'}));
 ````
+
+## HERANÇAS EM TYPESCRIPT
+
+````ts
+interface Mae{
+    nome:string;
+}
+
+interface Pai{
+    sobrenome:string;
+}
+
+interface Filho extends Mae, Pai{
+    idade:number;
+}
+
+const filho: Filho = {
+    nome: 'Felipe',
+    sobrenome: 'Mateus',
+    idade:26
+}
+
+console.log(filho);
+````
+
+![img_45.png](img/img_45.png)
+
+## GENERICS IN TS
+
+````ts
+type Usuario = {
+    nome: string;
+    email:string;
+}
+
+type Admin = {
+    nome: string;
+    email: string;
+    admin: true;
+}
+
+const usuario: Usuario = {
+    nome: 'Felipe',
+    email: 'fe@gmail.com'
+}
+
+const admin: Admin = {
+    nome: 'Felipe',
+    email: 'fe@gmail.com',
+    admin: true
+}
+
+function acessarSistema<T>(usuario:T):T{
+    return usuario;
+}
+
+console.log(acessarSistema<Usuario>(usuario));
+console.log(acessarSistema<Admin>(admin));
+````
+
+![img_46.png](img/img_46.png)
