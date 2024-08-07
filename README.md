@@ -590,3 +590,140 @@ console.log(podeVotar);
 ````
 
 ![img_48.png](img/img_48.png)
+
+## FUNCTIONS IN TS
+
+````ts
+function somarNumeros(number1: number, number2: number) : number{
+    return number1 + number2;
+}
+````
+
+![img_49.png](img/img_49.png)
+
+#### FUNCTION ANONIMO
+
+````ts
+const saudar = function (mensagem: string) : string{
+    return mensagem;
+};
+````
+![img_50.png](img/img_50.png)
+
+#### FUNCTION ARROW 
+
+````ts
+const saudar02 = (mensagem : string) : string =>{
+    return mensagem;
+}
+````
+![img_51.png](img/img_51.png)
+
+#### FUNCTION CONSTRUCTOR
+
+````ts
+const saudar03 = new Function('mensagem', 'return "Fala " + mensagem');
+````
+
+![img_52.png](img/img_52.png)
+
+## OPTIONAL PARAMETERS IN TS
+
+````ts
+function informarDadosPessoas(idPessoa: number, nome: string, email?:string) : void{
+    if (email != undefined){
+        console.log('Id Funcionario: ', idPessoa, 'Nome: ', nome,
+            'Email: ', email);
+        return;
+    }
+    console.log('Id Funcionario: ', idPessoa,'Nome: ', nome);
+}
+
+informarDadosPessoas(1,'Felipe',);
+informarDadosPessoas(2,'gilmara','gilmara@gmail.com');
+````
+
+![img_53.png](img/img_53.png)
+
+````ts
+function mensagemLog(mensagem : string, usuarioId ?: number) : void{
+    const horaLog = new Date().toLocaleTimeString();
+
+    console.log(horaLog, mensagem, usuarioId || 'Usuario(a) não conectado(a)');
+}
+
+mensagemLog('atualizar pagina');
+mensagemLog('usuario logado com sucesso!!',778811);
+````
+
+![img_54.png](img/img_54.png)
+
+````ts
+type Pessoa15 = {
+    IdFuncionario: number;
+    nome: string;
+    idade?: number;
+    email?: string;
+}
+
+let pessoa15 : Pessoa15;
+
+pessoa15 = {
+    IdFuncionario: 1,
+    nome: 'Felipe',
+};
+
+console.log(pessoa15);
+````
+
+![img_55.png](img/img_55.png)
+
+## DEFAULT PARAMETERS
+
+````ts
+function exibirMensagem(mensagem : string, saudar = 'fala pessoal') : string {
+    return saudar + ' ' + mensagem + '!';
+}
+````
+![img_56.png](img/img_56.png)
+
+## REST PARAMETERS
+
+````ts
+function somarNumeros2(...numeros : number[]){
+    let total = 0;
+    numeros.forEach((numero : number) => (total += numero));
+    return total;
+}
+
+console.log(somarNumeros2(1,2,3));
+````
+![img_57.png](img/img_57.png)
+
+````ts
+function listarFrutas(frase : string, ...frutas : string[]){
+    return frase + ' ' + frutas.join(', ');
+}
+````
+
+![img_58.png](img/img_58.png)
+
+### with class
+
+````ts
+class Produtos{
+    public exibirProdutos(...produtos : string[]):void{
+        for(const produto of produtos){
+            console.log(produto);
+        }
+    }
+}
+
+const departamentoInformatica : Produtos = new Produtos();
+console.log('todos os produtos do departamento de informatica disponivel no estoque...:');
+
+departamentoInformatica.exibirProdutos('mouse', 'notebook', 'usb', 'teclado', 'webcam');
+````
+
+
+![img_59.png](img/img_59.png)

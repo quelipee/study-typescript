@@ -213,10 +213,10 @@ if (contador < numberMax) {
 }
 const permissaoIdadeDirigir = 16;
 if (permissaoIdadeDirigir >= 18) {
-    console.log('voce esta habilitado para dirigir');
+    // console.log('voce esta habilitado para dirigir');
 }
 else {
-    console.log('voce nao esta habilitado para dirigir');
+    // console.log('voce nao esta habilitado para dirigir')
 }
 let desconto;
 let valorCompra = 14;
@@ -229,7 +229,7 @@ else if (valorCompra > 5 && valorCompra <= 10) {
 else {
     desconto = 15;
 }
-console.log(`Voce teve um desconto de...: ${desconto}%deconto}`);
+// console.log(`Voce teve um desconto de...: ${desconto}%deconto}`);
 const idadeVotacao = 15;
 // if (idadeVotacao >= 18){
 //     console.log('voce é elegivel para votar');
@@ -239,4 +239,78 @@ const idadeVotacao = 15;
 const podeVotar = (idadeVotacao >= 18)
     ? 'voce é elegivel para votar'
     : 'voce nao é elegivel para votar';
-console.log(podeVotar);
+// console.log(podeVotar);
+const arrayNumeros = [5, 4, 3, 2, 1, 0];
+for (const i in arrayNumeros) {
+    // console.log(i);
+}
+function somarNumeros(number1, number2) {
+    return number1 + number2;
+}
+//function anonima
+const saudar = function (mensagem) {
+    return mensagem;
+};
+// arrow functions, mais usada atualmente
+const saudar02 = (mensagem) => {
+    return mensagem;
+};
+// function with constructor
+const saudar03 = new Function('mensagem', 'return "Fala " + mensagem');
+// console.log(saudar03('Galera'));
+// console.log(saudar('ola developers com arrow functions'));
+function informarDadosPessoas(idPessoa, nome, email) {
+    if (email != undefined) {
+        console.log('Id Funcionario: ', idPessoa, 'Nome: ', nome, 'Email: ', email);
+        return;
+    }
+    console.log('Id Funcionario: ', idPessoa, 'Nome: ', nome);
+}
+// informarDadosPessoas(1,'Felipe',);
+// informarDadosPessoas(2,'gilmara','gilmara@gmail.com');
+function mensagemLog(mensagem, usuarioId) {
+    const horaLog = new Date().toLocaleTimeString();
+    console.log(horaLog, mensagem, usuarioId || 'Usuario(a) não conectado(a)');
+}
+let pessoa15;
+pessoa15 = {
+    IdFuncionario: 1,
+    nome: 'Felipe',
+};
+// console.log(pessoa15);
+/*
+* default parameters
+* */
+function descontoCompra(preco, desconto = 0.08) {
+    return preco * (1 - desconto);
+}
+function exibirMensagem(mensagem, saudar = 'fala pessoal') {
+    return saudar + ' ' + mensagem + '!';
+}
+function exibirNome(nome, sobrenome = 'Mateus') {
+    return nome + ' ' + sobrenome;
+}
+const resultado01 = exibirNome('Felipe');
+const resultado02 = exibirNome('Felipe', undefined);
+const resultado03 = exibirNome('Felipe', 'de Oliveira');
+function somarNumeros2(...numeros) {
+    let total = 0;
+    numeros.forEach((numero) => (total += numero));
+    return total;
+}
+// console.log(somarNumeros2(1,2,3));
+function listarFrutas(frase, ...frutas) {
+    return frase + ' ' + frutas.join(', ');
+}
+// console.log(listarFrutas('Felipe, voce precisa ir na feira e comprar ....: ',
+//     'maça', 'banana','cenoura', 'abacaxi'));
+class Produtos {
+    exibirProdutos(...produtos) {
+        for (const produto of produtos) {
+            console.log(produto);
+        }
+    }
+}
+const departamentoInformatica = new Produtos();
+console.log('todos os produtos do departamento de informatica disponivel no estoque...:');
+departamentoInformatica.exibirProdutos('mouse', 'notebook', 'usb', 'teclado', 'webcam');
