@@ -357,8 +357,8 @@ function acessarSistema<T>(usuario:T):T{
     return usuario;
 }
 
-console.log(acessarSistema<Usuario>(usuario));
-console.log(acessarSistema<Admin>(admin));
+// console.log(acessarSistema<Usuario>(usuario));
+// console.log(acessarSistema<Admin>(admin));
 
 // function acessar_sistema(usuario:Usuario):Usuario{
 //     return usuario;
@@ -366,5 +366,45 @@ console.log(acessarSistema<Admin>(admin));
 
 // console.log(acessar_sistema(usuario));
 
+const numberMax = 100;
+let contador = 100;
 
+if (contador < numberMax) {
+    contador++;
+}
+
+const permissaoIdadeDirigir = 16;
+
+if (permissaoIdadeDirigir >= 18){
+    console.log('voce esta habilitado para dirigir');
+} else {
+    console.log('voce nao esta habilitado para dirigir')
+}
+
+let desconto : number;
+let valorCompra = 14;
+
+if (valorCompra > 0 && valorCompra <= 5 ){
+    desconto = 5;
+}else if (valorCompra > 5 && valorCompra <= 10){
+    desconto = 10;
+}else {
+    desconto = 15;
+}
+
+console.log(`Voce teve um desconto de...: ${desconto}%deconto}`);
+
+
+const idadeVotacao = 15;
+// if (idadeVotacao >= 18){
+//     console.log('voce é elegivel para votar');
+// }else{
+//     console.log('voce nao é elegivel para votar');
+// }
+
+const podeVotar = (idadeVotacao >= 18)
+    ? 'voce é elegivel para votar'
+    : 'voce nao é elegivel para votar'
+
+console.log(podeVotar);
 

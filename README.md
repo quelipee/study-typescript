@@ -561,3 +561,32 @@ console.log(acessarSistema<Admin>(admin));
 ````
 
 ![img_46.png](img/img_46.png)
+
+## IF IN TS
+
+````ts
+let desconto : number;
+let valorCompra = 14;
+
+if (valorCompra > 0 && valorCompra <= 5 ){
+    desconto = 5;
+}else if (valorCompra > 5 && valorCompra <= 10){
+    desconto = 10;
+}else {
+    desconto = 15;
+}
+````
+
+![img_47.png](img/img_47.png)
+
+### ternario
+
+````ts
+const podeVotar = (idadeVotacao >= 18)
+    ? 'voce é elegivel para votar'
+    : 'voce nao é elegivel para votar'
+
+console.log(podeVotar);
+````
+
+![img_48.png](img/img_48.png)
