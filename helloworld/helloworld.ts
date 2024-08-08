@@ -513,12 +513,238 @@ function listarFrutas(frase : string, ...frutas : string[]){
 class Produtos{
     public exibirProdutos(...produtos : string[]):void{
         for(const produto of produtos){
-            console.log(produto);
+            // console.log(produto);
         }
     }
 }
 
 const departamentoInformatica : Produtos = new Produtos();
-console.log('todos os produtos do departamento de informatica disponivel no estoque...:');
+// console.log('todos os produtos do departamento de informatica disponivel no estoque...:');
 
 departamentoInformatica.exibirProdutos('mouse', 'notebook', 'usb', 'teclado', 'webcam');
+
+
+class Pessoa{
+    nome: string;
+    sobrenome: string;
+    constructor(nome : string, sobrenome: string) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+    }
+
+    nomeCompleto() : string {
+        return `${this.nome} ${this.sobrenome}`;
+    }
+}
+
+const pessoa21 : Pessoa = new Pessoa('felipe','mateus');
+// console.log(pessoa21.nomeCompleto());
+
+class Estudante{
+    codigoEstudante : number;
+    nome : string;
+}
+
+const estudante = new Estudante();
+
+estudante.codigoEstudante = 123;
+estudante.nome = 'felipe';
+
+// console.log('codigo do estudante: ' + estudante.codigoEstudante);
+// console.log('nome do estudante: ' + estudante.nome);
+
+class Estudante01{
+    codigoEstudante : number;
+    nome : string;
+
+    constructor(nome : string, codigoEstudante : number) {
+        this.nome = nome;
+        this.codigoEstudante = codigoEstudante;
+    }
+    listarEstudante(){
+        console.log('Codigo: ' + this.codigoEstudante);
+        console.log('nome: ' + this.nome);
+    }
+}
+
+const estudante1 = new Estudante01('felipe',11);
+
+// estudante1. listarEstudante();
+
+
+// public
+class Estudante51 {
+    codigoEstudante : number;
+    nomeEstudante : string;
+}
+
+const estudante51 = new Estudante51();
+estudante51.codigoEstudante = 1;
+estudante51.nomeEstudante = 'felipe';
+
+// console.log(estudante51.codigoEstudante);
+// console.log(estudante51.nomeEstudante);
+
+
+//private
+class Estudante52 {
+    codigoEstudante : number;
+    nomeEstudante : string;
+    private idade : number;
+
+    constructor(codigo : number, nome : string, idade : number) {
+        this.codigoEstudante = codigo;
+        this.nomeEstudante  = nome;
+        this.idade  = idade;
+    }
+
+    retornarDadosEstudantes() {
+        return `codigo: ${this.codigoEstudante} | 
+        nome: ${this.nomeEstudante} | 
+        idade: ${this.idade}`;
+    }
+}
+
+const estudante52 = new Estudante52(
+    1,
+    'felipe',
+    26
+);
+
+// console.log(estudante52.retornarDadosEstudantes());
+
+
+// protected
+class Estudante53 {
+    codigoEstudante : number;
+    protected nomeEstudante : string;
+
+    constructor(codigo : number, nome : string) {
+        this.codigoEstudante  = codigo;
+        this.nomeEstudante  = nome;
+    }
+}
+
+class Pessoa101 extends Estudante53{
+    private curso : string;
+
+    constructor(codigo : number, nome : string, curso : string) {
+        super(codigo, nome);
+        this.curso = curso;
+    }
+
+    retornarDadosAluno() {
+        return `codigo: ${this.codigoEstudante} | 
+        nome: ${this.nomeEstudante} | 
+        curso: ${this.curso}`;
+    }
+}
+
+const estudante102 = new Pessoa101(1,'felipe','ads');
+console.log(estudante102.retornarDadosAluno());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

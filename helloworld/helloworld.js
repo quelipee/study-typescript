@@ -307,10 +307,83 @@ function listarFrutas(frase, ...frutas) {
 class Produtos {
     exibirProdutos(...produtos) {
         for (const produto of produtos) {
-            console.log(produto);
+            // console.log(produto);
         }
     }
 }
 const departamentoInformatica = new Produtos();
-console.log('todos os produtos do departamento de informatica disponivel no estoque...:');
+// console.log('todos os produtos do departamento de informatica disponivel no estoque...:');
 departamentoInformatica.exibirProdutos('mouse', 'notebook', 'usb', 'teclado', 'webcam');
+class Pessoa {
+    constructor(nome, sobrenome) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+    }
+    nomeCompleto() {
+        return `${this.nome} ${this.sobrenome}`;
+    }
+}
+const pessoa21 = new Pessoa('felipe', 'mateus');
+// console.log(pessoa21.nomeCompleto());
+class Estudante {
+}
+const estudante = new Estudante();
+estudante.codigoEstudante = 123;
+estudante.nome = 'felipe';
+// console.log('codigo do estudante: ' + estudante.codigoEstudante);
+// console.log('nome do estudante: ' + estudante.nome);
+class Estudante01 {
+    constructor(nome, codigoEstudante) {
+        this.nome = nome;
+        this.codigoEstudante = codigoEstudante;
+    }
+    listarEstudante() {
+        console.log('Codigo: ' + this.codigoEstudante);
+        console.log('nome: ' + this.nome);
+    }
+}
+const estudante1 = new Estudante01('felipe', 11);
+// estudante1. listarEstudante();
+// public
+class Estudante51 {
+}
+const estudante51 = new Estudante51();
+estudante51.codigoEstudante = 1;
+estudante51.nomeEstudante = 'felipe';
+// console.log(estudante51.codigoEstudante);
+// console.log(estudante51.nomeEstudante);
+//private
+class Estudante52 {
+    constructor(codigo, nome, idade) {
+        this.codigoEstudante = codigo;
+        this.nomeEstudante = nome;
+        this.idade = idade;
+    }
+    retornarDadosEstudantes() {
+        return `codigo: ${this.codigoEstudante} | 
+        nome: ${this.nomeEstudante} | 
+        idade: ${this.idade}`;
+    }
+}
+const estudante52 = new Estudante52(1, 'felipe', 26);
+// console.log(estudante52.retornarDadosEstudantes());
+// protected
+class Estudante53 {
+    constructor(codigo, nome) {
+        this.codigoEstudante = codigo;
+        this.nomeEstudante = nome;
+    }
+}
+class Pessoa101 extends Estudante53 {
+    constructor(codigo, nome, curso) {
+        super(codigo, nome);
+        this.curso = curso;
+    }
+    retornarDadosAluno() {
+        return `codigo: ${this.codigoEstudante} | 
+        nome: ${this.nomeEstudante} | 
+        curso: ${this.curso}`;
+    }
+}
+const estudante102 = new Pessoa101(1, 'felipe', 'ads');
+console.log(estudante102.retornarDadosAluno());

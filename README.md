@@ -727,3 +727,137 @@ departamentoInformatica.exibirProdutos('mouse', 'notebook', 'usb', 'teclado', 'w
 
 
 ![img_59.png](img/img_59.png)
+
+## Class in ts
+
+````ts
+class Estudante01{
+    codigoEstudante : number;
+    nome : string;
+
+    constructor(nome : string, codigoEstudante : number) {
+        this.nome = nome;
+        this.codigoEstudante = codigoEstudante;
+    }
+    listarEstudante(){
+        console.log('Codigo: ' + this.codigoEstudante);
+        console.log('nome: ' + this.nome);
+    }
+}
+
+const estudante1 = new Estudante01('felipe',11);
+
+estudante1. listarEstudante();
+````
+
+![img_60.png](img/img_60.png)
+
+### not constructor
+
+````ts
+class Estudante{
+    codigoEstudante : number;
+    nome : string;
+}
+
+const estudante = new Estudante();
+
+estudante.codigoEstudante = 123;
+estudante.nome = 'felipe';
+
+console.log('codigo do estudante: ' + estudante.codigoEstudante);
+console.log('nome do estudante: ' + estudante.nome);
+````
+
+![img_61.png](img/img_61.png)
+
+## MODIFICADORES DE ACESSO
+
+#### private
+````ts
+class Estudante52 {
+    codigoEstudante : number;
+    nomeEstudante : string;
+    private idade : number;
+
+    constructor(codigo : number, nome : string, idade : number) {
+        this.codigoEstudante = codigo;
+        this.nomeEstudante  = nome;
+        this.idade  = idade;
+    }
+
+    retornarDadosEstudantes() {
+        return `codigo: ${this.codigoEstudante} | 
+        nome: ${this.nomeEstudante} | 
+        idade: ${this.idade}`;
+    }
+}
+
+const estudante52 = new Estudante52(
+    1,
+    'felipe',
+    26
+);
+
+console.log(estudante52.retornarDadosEstudantes());
+````
+![img_62.png](img/img_62.png)
+
+#### protected
+
+````ts
+class Estudante53 {
+    codigoEstudante : number;
+    protected nomeEstudante : string;
+
+    constructor(codigo : number, nome : string) {
+        this.codigoEstudante  = codigo;
+        this.nomeEstudante  = nome;
+    }
+}
+
+class Pessoa101 extends Estudante53{
+    private curso : string;
+
+    constructor(codigo : number, nome : string, curso : string) {
+        super(codigo, nome);
+        this.curso = curso;
+    }
+
+    retornarDadosAluno() {
+        return `codigo: ${this.codigoEstudante} | 
+        nome: ${this.nomeEstudante} | 
+        curso: ${this.curso}`;
+    }
+}
+
+const estudante102 = new Pessoa101(1,'felipe','ads');
+console.log(estudante102.retornarDadosAluno());
+````
+![img_63.png](img/img_63.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
