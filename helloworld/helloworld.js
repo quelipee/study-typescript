@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 let mensagem = 'hello world'; // definindo a variavel e o tipo dela
 // console.log(mensagem);
 function addnumber(numb1, numb2) {
@@ -386,4 +387,83 @@ class Pessoa101 extends Estudante53 {
     }
 }
 const estudante102 = new Pessoa101(1, 'felipe', 'ads');
-console.log(estudante102.retornarDadosAluno());
+class Funcionario {
+    constructor(dataNascimento) {
+        this.dateNascimento = dataNascimento;
+    }
+}
+const funcionario = new Funcionario(new Date(1997, 12, 19));
+// funcionario.dateNascimento = new Date(1997,12,19) error
+//outra forma de utilizar readonly
+class Funcionario01 {
+    constructor(dataNascimento) {
+        this.dataNascimento = dataNascimento;
+        this.dataNascimento = dataNascimento;
+    }
+}
+class Funcionario02 {
+    constructor(nome, codigo) {
+        this.nome = nome;
+        this.codigoFuncionario = codigo;
+    }
+}
+const func = new Funcionario02('felipe', 123);
+func.nome = 'mario';
+const funcionario03 = {
+    codigo: 1,
+    nome: 'mario',
+};
+// funcionario03.codigo = 23; error
+// funcionario03.nome = 'felipe'; error
+// acessando sem o readonly
+const funcionario04 = {
+    codigo: 1,
+    nome: 'mario',
+};
+//get
+class Quadrado {
+    constructor() {
+        this._largura = 6;
+        this._altura = 12;
+    }
+    get calcularQuadrado() {
+        return this._altura * this._largura;
+    }
+}
+// console.log(new Quadrado().calcularQuadrado);
+//set
+class Pessoa52 {
+    retornarNomePessoa(setNomePessoa) {
+        this.nome = setNomePessoa;
+    }
+}
+const pessoa1221 = new Pessoa52();
+pessoa1221.retornarNomePessoa('felipe');
+// console.log(pessoa1221.nome);
+class Estudante123 {
+    constructor() {
+        this._nome = 'felipe mateus';
+    }
+    get nomeEstudante() { return this._nome; }
+}
+const estudante12313 = new Estudante123();
+const resultado213 = estudante12313.nomeEstudante;
+// console.log(resultado213);
+//set explicacao maior
+class Estudante1245 {
+    constructor(nome, semestre, curso) {
+        this._nome = nome;
+        this._semestre = semestre;
+        this._curso = curso;
+    }
+    get cursos() {
+        return this._curso;
+    }
+    set cursos(setCurso) {
+        this._curso = setCurso;
+    }
+}
+const estudante54 = new Estudante1245('felipe', 5, 'ads');
+console.log(estudante54);
+estudante54._curso = 'sistema da informação';
+console.log(estudante54);

@@ -836,13 +836,82 @@ console.log(estudante102.retornarDadosAluno());
 ````
 ![img_63.png](img/img_63.png)
 
+## readonly in ts
 
+````ts
+class Funcionario {
+    readonly dateNascimento : Date;
 
+    constructor(dataNascimento : Date) {
+        this.dateNascimento = dataNascimento
+    }
+}
 
+const funcionario = new Funcionario(new Date(1997,12,19));
+// funcionario.dateNascimento = new Date(1997,12,19) error
+````
+#### outra forma de utilizar o readonly
 
+````ts
+class Funcionario01 {
+    constructor(readonly dataNascimento: Date) {
+        this.dataNascimento = dataNascimento;
+    }
+}
+````
+## readonly with interface 
 
+````ts
+interface IFuncionario {
+    codigo : number;
+    nome : string;
+}
 
+const funcionario03:Readonly<IFuncionario> = {
+    codigo : 1,
+    nome: 'mario',
+}
 
+funcionario03.codigo = 23;
+funcionario03.nome = 'felipe';
+
+// acessando sem o readonly
+const funcionario04: IFuncionario = {
+    codigo : 1,
+    nome: 'mario',
+}
+````
+
+## GET AND SET IN TS
+
+````ts
+class Estudante1245 {
+     _nome: string;
+     _semestre : number;
+     _curso : string;
+
+    constructor(nome : string, semestre : number, curso : string) {
+        this._nome = nome;
+        this._semestre  = semestre;
+        this._curso = curso;
+    }
+
+    get cursos(){
+        return this._curso;
+    }
+
+    set cursos(setCurso : string){
+        this._curso = setCurso;
+    }
+}
+
+const estudante54 = new Estudante1245('felipe',5,'ads');
+console.log(estudante54)
+estudante54._curso = 'sistema da informação';
+console.log(estudante54);
+````
+
+![img_64.png](img/img_64.png)
 
 
 

@@ -641,15 +641,131 @@ class Pessoa101 extends Estudante53{
 }
 
 const estudante102 = new Pessoa101(1,'felipe','ads');
-console.log(estudante102.retornarDadosAluno());
+// console.log(estudante102.retornarDadosAluno());
 
 
+//readonly
+
+export {};
+
+class Funcionario {
+    readonly dateNascimento : Date;
+
+    constructor(dataNascimento : Date) {
+        this.dateNascimento = dataNascimento
+    }
+}
+
+const funcionario = new Funcionario(new Date(1997,12,19));
+// funcionario.dateNascimento = new Date(1997,12,19) error
+
+//outra forma de utilizar readonly
+class Funcionario01 {
+    constructor(readonly dataNascimento: Date) {
+        this.dataNascimento = dataNascimento;
+    }
+}
+
+class Funcionario02 {
+    nome : string;
+    readonly codigoFuncionario : number;
+
+    constructor(nome : string, codigo : number) {
+        this.nome = nome;
+        this.codigoFuncionario = codigo;
+    }
+}
+
+const func = new Funcionario02('felipe',123);
+func.nome = 'mario';
+// func.codigoFuncionario = 50; ERR0R
+
+//readonly with interface
+
+interface IFuncionario {
+    codigo : number;
+    nome : string;
+}
+
+const funcionario03:Readonly<IFuncionario> = {
+    codigo : 1,
+    nome: 'mario',
+}
+
+// funcionario03.codigo = 23; error
+// funcionario03.nome = 'felipe'; error
+
+// acessando sem o readonly
+const funcionario04: IFuncionario = {
+    codigo : 1,
+    nome: 'mario',
+}
+
+//get
+class Quadrado {
+    private _largura = 6;
+    private _altura = 12;
+
+    get calcularQuadrado() {
+        return this._altura * this._largura;
+    }
+}
+
+// console.log(new Quadrado().calcularQuadrado);
+
+//set
+class Pessoa52 {
+    nome : string;
+
+    retornarNomePessoa(setNomePessoa : string) {
+        this.nome = setNomePessoa;
+    }
+}
+
+const pessoa1221 = new Pessoa52();
+pessoa1221.retornarNomePessoa('felipe');
+// console.log(pessoa1221.nome);
 
 
+class Estudante123 {
+    private _nome = 'felipe mateus';
+    private _semestre : number;
+    private _curso : string;
+
+    get nomeEstudante () { return this._nome; }
+}
+
+const estudante12313 = new Estudante123();
+const resultado213 = estudante12313.nomeEstudante;
+// console.log(resultado213);
 
 
+//set explicacao maior
 
+class Estudante1245 {
+     _nome: string;
+     _semestre : number;
+     _curso : string;
 
+    constructor(nome : string, semestre : number, curso : string) {
+        this._nome = nome;
+        this._semestre  = semestre;
+        this._curso = curso;
+    }
+
+    get cursos(){
+        return this._curso;
+    }
+
+    set cursos(setCurso : string){
+        this._curso = setCurso;
+    }
+}
+
+const estudante54 = new Estudante1245('felipe',5,'ads');
+console.log(estudante54)
+estudante54._curso = 'sistema da informação';
+console.log(estudante54);
 
 
 
