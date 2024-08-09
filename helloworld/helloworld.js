@@ -548,7 +548,73 @@ class Cachorro1 {
     }
 }
 Cachorro1.QTD_CACHORRO_VENDIDO = 0;
-const cao1 = new Cachorro1('bidu', 9, ['spitz']);
-const cao2 = new Cachorro1('guri', 7, ['buldogue']);
-cao1.exibirInformacao();
-cao2.exibirInformacao();
+// const cao1 = new Cachorro1('bidu',9,['spitz']);
+// const cao2 = new Cachorro1('guri',7,['buldogue']);
+// cao1.exibirInformacao();
+// cao2.exibirInformacao();
+//CLASS ABSTRACTS
+class Funcionario999 {
+    constructor(nome, sobrenome) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+    }
+    get retonarNomeCompleto() {
+        return `${this.nome} ${this.sobrenome}`;
+    }
+    emitirContraCheque() {
+        return `${this.retonarNomeCompleto} - Salario:  ${this.retornarSalario()}`;
+    }
+}
+class FuncionarioCLT extends Funcionario999 {
+    constructor(nome, sobrenome, salario) {
+        super(nome, sobrenome);
+        this.salario = salario;
+    }
+    retornarSalario() {
+        return this.salario;
+    }
+}
+class FuncionarioPJ extends Funcionario999 {
+    constructor(nome, sobrenome, valorHora, horasTrabalhadas) {
+        super(nome, sobrenome);
+        this.valorHora = valorHora;
+        this.horasTrabalhadas = horasTrabalhadas;
+    }
+    retornarSalario() {
+        return this.valorHora * this.horasTrabalhadas;
+    }
+}
+const felipe = new FuncionarioCLT('felipe', 'mateus', 15000);
+const renata = new FuncionarioPJ('renata', 'martiz', 150, 150);
+function exibirNome232(pessoa) {
+    return `
+    nome: ${pessoa.nome}
+    sobrenome: ${pessoa.sobrenome}
+    idade: ${pessoa.idade}`;
+}
+const felipe97 = {
+    nome: 'felipe',
+    sobrenome: 'mateus',
+    idade: 26
+};
+const livro = {
+    titulo: 'O senhor dos aneis',
+    autor: 'romario biro'
+};
+const carro = {
+    modelo: 'Fusca',
+    ano: 1999,
+};
+class Gato {
+    constructor(nome, idade, estaVivo) {
+        this.nome = nome;
+        this.idade = idade;
+        this.estaVivo = estaVivo;
+    }
+    comer(tipoComida) {
+        console.log(`O gato ${this.nome} de ${this.idade} anos está comendo ${tipoComida}`);
+    }
+}
+const gato = new Gato('reiske', 3, true);
+gato.comer('ração');
+console.log(gato);

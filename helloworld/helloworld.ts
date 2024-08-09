@@ -877,32 +877,143 @@ class Cachorro1{
     }
 }
 
-const cao1 = new Cachorro1('bidu',9,['spitz']);
-const cao2 = new Cachorro1('guri',7,['buldogue']);
-cao1.exibirInformacao();
-cao2.exibirInformacao();
+// const cao1 = new Cachorro1('bidu',9,['spitz']);
+// const cao2 = new Cachorro1('guri',7,['buldogue']);
+// cao1.exibirInformacao();
+// cao2.exibirInformacao();
+
+//CLASS ABSTRACTS
+
+abstract class Funcionario999{
+    constructor(private nome : string, private sobrenome: string) {}
+    abstract retornarSalario(): number;
+
+    get retonarNomeCompleto() : string {
+        return `${this.nome} ${this.sobrenome}`;
+    }
+
+    emitirContraCheque() : string {
+        return `${this.retonarNomeCompleto} - Salario:  ${this.retornarSalario()}`;
+    }
+}
+
+class FuncionarioCLT extends Funcionario999{
+
+    constructor(nome : string, sobrenome : string, private salario : number) {
+        super(nome, sobrenome);
+    }
+
+    retornarSalario(): number {
+        return this.salario;
+    }
+}
+
+class FuncionarioPJ extends Funcionario999{
+    constructor(nome : string,
+                sobrenome : string,
+                private valorHora : number,
+                private horasTrabalhadas : number) {
+        super(nome, sobrenome);
+    }
+
+    retornarSalario(): number {
+        return this.valorHora * this.horasTrabalhadas;
+    }
+}
+
+const felipe = new FuncionarioCLT('felipe','mateus',15000);
+const renata = new FuncionarioPJ('renata','martiz',150,150);
+
+// console.log(felipe.emitirContraCheque());
+// console.log(renata.emitirContraCheque());
+
+//interfaces
+
+interface Pessoa{
+    nome: string;
+    sobrenome: string;
+    idade: number;
+}
+
+function exibirNome232(pessoa: { idade: number; nome: string; sobrenome: string }){
+    return `
+    nome: ${pessoa.nome}
+    sobrenome: ${pessoa.sobrenome}
+    idade: ${pessoa.idade}`;
+}
+
+const felipe97 = {
+    nome : 'felipe',
+    sobrenome : 'mateus',
+    idade : 26
+}
+
+// console.log(exibirNome232(felipe97));
+
+interface Livro{
+    titulo : string;
+    autor : string;
+    paginas ?: number;
+}
+
+const livro : Livro = {
+    titulo : 'O senhor dos aneis',
+    autor : 'romario biro'
+}
+
+// console.log(livro);
 
 
+interface Carro{
+    readonly modelo : string;
+    ano : number;
+    valor ?: number;
+}
 
+const carro : Carro = {
+    modelo : 'Fusca',
+    ano : 1999,
+}
 
+// console.log(carro);
 
+interface IAnimal {
+    nome : string;
+    idade : number;
+    estaVivo : boolean;
+    comer(tipoComida : string) : void;
+}
 
+class Gato implements IAnimal{
+    estaVivo: boolean;
+    idade: number;
+    nome: string;
 
+    constructor(nome : string, idade : number, estaVivo : boolean) {
+        this.nome = nome;
+        this.idade = idade;
+        this.estaVivo = estaVivo;
+    }
+    comer(tipoComida: string): void {
+        console.log(`O gato ${this.nome} de ${this.idade} anos está comendo ${tipoComida}`);
+    }
+}
 
+const gato = new Gato('reiske',3,true);
+gato.comer('ração');
+console.log(gato);
 
+interface Pessoa2{
+    nome : string;
+    sobrenome : string;
+    idade : number;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+type Pessoa3 = {
+    nome : string;
+    sobrenome : string;
+    idade : number;
+}
 
 
 
