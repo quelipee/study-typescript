@@ -464,6 +464,91 @@ class Estudante1245 {
     }
 }
 const estudante54 = new Estudante1245('felipe', 5, 'ads');
-console.log(estudante54);
+// console.log(estudante54)
 estudante54._curso = 'sistema da informação';
-console.log(estudante54);
+// console.log(estudante54);
+//herança
+class Animal01 {
+    mover(distancia = 0) {
+        console.log(`Animal se moveu...: ${distancia} mestros.`);
+    }
+}
+class Cachorro extends Animal01 {
+    latir() {
+        console.log('Au, Au');
+    }
+}
+const cao = new Cachorro();
+// cao.mover(5);
+// cao.latir();
+//ex2
+class Pessoa97 {
+    constructor(nome, sobrenome) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+    }
+    retornarNomeCompleto() {
+        return `${this.nome} ${this.sobrenome}`;
+    }
+    apresentarPessoa() {
+        return `Meu nome é ${this.nome} ${this.sobrenome}.`;
+    }
+}
+class Funcionario97 extends Pessoa97 {
+    constructor(nome, sobrenome, funcao) {
+        super(nome, sobrenome);
+        this.funcao = funcao;
+    }
+    retornarNome02() {
+        return super.apresentarPessoa() + `E, Sou ${this.funcao}.`;
+    }
+}
+const func97 = new Funcionario97('felipe', 'mateus', 'ti');
+/* console.log(func97.retornarNomeCompleto());
+ console.log(func97.apresentarPessoa());
+ console.log(func97.retornarNome02());*/
+//STATIC
+class Funcionario98 {
+    constructor(nome, sobrenome, titulo) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.titulo = titulo;
+        Funcionario98.contratacoes++;
+    }
+}
+Funcionario98.contratacoes = 0;
+const func98 = new Funcionario98('felipe', 'mateus', 'dev');
+const func99 = new Funcionario98('mario', 'mateus', 'prof');
+// console.log(Funcionario98.contratacoes);
+class Funcionario99 {
+    constructor(nome, sobrenome, titulo) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.titulo = titulo;
+        Funcionario99.contratacoes++;
+    }
+    static retornarContratacoes() {
+        return Funcionario99.contratacoes;
+    }
+}
+Funcionario99.contratacoes = 0;
+const func999 = new Funcionario99('felipe', 'mateus', 'dev');
+class Cachorro1 {
+    constructor(nome, idade, racas) {
+        this.nome = nome;
+        this.idade = idade;
+        this.racas = racas;
+        Cachorro1.QTD_CACHORRO_VENDIDO++;
+        console.log(Cachorro1.QTD_CACHORRO_VENDIDO);
+    }
+    exibirInformacao() {
+        console.log(`O cachorro ${this.nome} tem ${this.idade}.`);
+    }
+}
+Cachorro1.QTD_CACHORRO_VENDIDO = 0;
+const cao1 = new Cachorro1('bidu', 9, ['spitz']);
+const cao2 = new Cachorro1('guri', 7, ['buldogue']);
+cao1.exibirInformacao();
+cao2.exibirInformacao();
