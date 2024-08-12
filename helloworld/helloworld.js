@@ -640,4 +640,63 @@ const dadosCliente = {
     email: 'fe@gmail.com',
     cpf: 132132132,
 };
-console.log(dadosCliente);
+function exibirTipo(a, b) {
+    if (typeof a === 'number' && typeof b === 'number') {
+        return a + b;
+    }
+    if (typeof a === 'string' && typeof b === 'string') {
+        return a.concat(b);
+    }
+    throw new Error('Argumentos invalidos');
+}
+// instanceof
+class Carro2 {
+    constructor(nome, marca) {
+        this.nome = nome;
+        this.marca = marca;
+    }
+}
+class Moto2 {
+    constructor(nome, ano) {
+        this.nome = nome;
+        this.ano = ano;
+    }
+}
+function detalhesVeiculos(veiculo) {
+    if (veiculo instanceof Carro2) {
+        return `O nome do carro é: ${veiculo.nome} e a marca é: ${veiculo.marca}`;
+    }
+    else if (veiculo instanceof Moto2) {
+        return `O nome da mato é: ${veiculo.nome} e o ano é: ${veiculo.ano}`;
+    }
+}
+const carro2 = new Carro2('gol', 'volksvagen');
+const moto2 = new Moto2('CBR', 2020);
+class Peixe {
+    constructor(grupo, corPeixe) {
+        this.grupo = grupo;
+        this.corPeixe = corPeixe;
+    }
+}
+class Passaro {
+    constructor(grupo, corPena) {
+        this.grupo = grupo;
+        this.corPena = corPena;
+    }
+}
+function nadar(grupo) {
+    console.log(`O ${grupo} esta nadando...`);
+}
+function voar(grupo) {
+    console.log(`O ${grupo} esta nadando...`);
+}
+function mover(animal) {
+    if ('corPeixe' in animal) {
+        nadar(animal.grupo);
+    }
+    else if ('corPena' in animal) {
+        voar(animal.grupo);
+    }
+}
+mover(new Peixe('peixe', 'azul'));
+mover(new Passaro('passaro', 'vermelho'));

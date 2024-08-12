@@ -1097,19 +1097,102 @@ const dadosCliente : DadosCliente = {
     cpf: 132132132,
 }
 
-console.log(dadosCliente);
+//type guards
+
+//typeof
+
+type alfanumerico = string | number;
+
+function exibirTipo(a: alfanumerico, b: alfanumerico) {
+    if (typeof a === 'number' && typeof b === 'number'){
+        return a + b;
+    }
+
+    if (typeof a === 'string' && typeof b === 'string'){
+        return a.concat(b);
+    }
+
+    throw new Error('Argumentos invalidos');
+}
+
+// instanceof
+
+class Carro2{
+    nome: string;
+    marca: string;
+
+    constructor(nome: string, marca: string) {
+        this.nome = nome;
+        this.marca = marca;
+    }
+}
+
+class Moto2{
+    nome: string;
+    ano: number;
+
+    constructor(nome : string, ano: number) {
+        this.nome = nome;
+        this.ano = ano;
+    }
+}
+
+function detalhesVeiculos(veiculo: Carro2 | Moto2){
+    if (veiculo instanceof Carro2){
+        return `O nome do carro é: ${veiculo.nome} e a marca é: ${veiculo.marca}`;
+    }else if(veiculo instanceof Moto2){
+        return `O nome da mato é: ${veiculo.nome} e o ano é: ${veiculo.ano}`;
+    }
+}
+
+const carro2 = new Carro2('gol','volksvagen');
+const moto2 = new Moto2('CBR',2020);
 
 
+//in
 
+interface IAnimal2 {
+    grupo: string;
+}
 
+class Peixe implements IAnimal2 {
+    grupo: string;
+    corPeixe: string;
 
+    constructor(grupo: string, corPeixe: string){
+        this.grupo = grupo;
+        this.corPeixe = corPeixe;
+    }
+}
 
+class Passaro implements IAnimal2{
+    grupo: string;
+    corPena: string;
 
+    constructor(grupo: string, corPena: string) {
+        this.grupo = grupo;
+        this.corPena = corPena;
+    }
+}
 
+function nadar(grupo: string){
+    console.log(`O ${grupo} esta nadando...`);
+}
 
+function voar(grupo: string){
+    console.log(`O ${grupo} esta nadando...`);
+}
 
+function mover(animal: IAnimal2){
+    if ('corPeixe' in animal){
+        nadar((animal as Peixe).grupo);
+    }else if('corPena' in animal){
+        voar((animal as Passaro).grupo);
+    }
+}
 
-
+mover(new Peixe('peixe', 'azul'));
+mover(new Passaro('passaro', 'vermelho'));
 
 
 
