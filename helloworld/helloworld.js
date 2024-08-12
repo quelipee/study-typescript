@@ -632,3 +632,12 @@ const desenvolvedor = {
     salario: 2600,
     linguagemProgramacao: 'php',
 };
+const dadosCliente = {
+    conta: 123,
+    agencia: 123123,
+    banco: 'banco do brasil',
+    nome: 'felipe',
+    email: 'fe@gmail.com',
+    cpf: 132132132,
+};
+console.log(dadosCliente);

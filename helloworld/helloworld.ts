@@ -1069,8 +1069,35 @@ const desenvolvedor : IDesenvolvedor = {
     linguagemProgramacao: 'php',
 }
 
+//intersection types
 
+interface DadosBancarios{
+    conta:number;
+    agencia:number;
+    banco:string;
+}
 
+interface Cliente21321{
+    nome:string;
+    email:string;
+}
+
+interface DadosPessoaFisica {
+    cpf:number;
+}
+
+type DadosCliente = DadosBancarios & Cliente21321 & DadosPessoaFisica;
+
+const dadosCliente : DadosCliente = {
+    conta: 123,
+    agencia: 123123,
+    banco: 'banco do brasil',
+    nome: 'felipe',
+    email: 'fe@gmail.com',
+    cpf: 132132132,
+}
+
+console.log(dadosCliente);
 
 
 
