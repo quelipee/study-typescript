@@ -1176,8 +1176,49 @@ console.log(gato);
 ````
 ![img_74.png](img/img_74.png)
 
+## EXTENDS INTERFACE IN TS
 
+````ts
+interface ICachorro{
+    nome:string;
+}
 
+interface IGato{
+    nome: string;
+}
+
+interface IAnimal12 extends IGato, ICachorro {
+    idade: number;
+}
+
+const animal21 : IAnimal12 = {
+    nome: 'bidu',
+    idade: 10,
+}
+````
+![img_75.png](img/img_75.png)
+
+````ts
+interface IFuncionario156 {
+    id: number;
+    nome: string;
+    salario: number;
+}
+
+//omit para mudar o scopo da propriedade
+interface IDesenvolvedor extends Omit<IFuncionario156, 'id'> {
+    id:string;
+    linguagemProgramacao: string;
+}
+
+const desenvolvedor : IDesenvolvedor = {
+    id: '1',
+    nome: 'felipe',
+    salario: 2600,
+    languagemProgramacao: 'php',
+}
+````
+![img_76.png](img/img_76.png)
 
 
 

@@ -616,5 +616,19 @@ class Gato {
     }
 }
 const gato = new Gato('reiske', 3, true);
-gato.comer('ração');
-console.log(gato);
+const cao121 = {
+    nome: 'bidu',
+    idade: 10,
+    porte: 'medio',
+    raca: 'lavrador'
+};
+const animal21 = {
+    nome: 'bidu',
+    idade: 10,
+};
+const desenvolvedor = {
+    id: '1as1',
+    nome: 'felipe',
+    salario: 2600,
+    linguagemProgramacao: 'php',
+};

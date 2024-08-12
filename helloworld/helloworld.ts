@@ -1000,8 +1000,8 @@ class Gato implements IAnimal{
 }
 
 const gato = new Gato('reiske',3,true);
-gato.comer('ração');
-console.log(gato);
+// gato.comer('ração');
+// console.log(gato);
 
 interface Pessoa2{
     nome : string;
@@ -1015,12 +1015,59 @@ type Pessoa3 = {
     idade : number;
 }
 
+interface Animal12{
+    nome: string;
+    idade: number;
+    porte: string;
+}
+
+interface Cachorro12 extends Animal12{
+    raca:string;
+}
+
+const cao121 : Cachorro12 = {
+    nome: 'bidu',
+    idade: 10,
+    porte: 'medio',
+    raca: 'lavrador'
+}
+
+interface ICachorro{
+    nome:string;
+}
+
+interface IGato{
+    nome: string;
+}
+
+interface IAnimal12 extends IGato, ICachorro {
+    idade: number;
+}
+
+const animal21 : IAnimal12 = {
+    nome: 'bidu',
+    idade: 10,
+}
 
 
+interface IFuncionario156 {
+    id: number;
+    nome: string;
+    salario: number;
+}
 
+//omit para mudar o scopo da propriedade
+interface IDesenvolvedor extends Omit<IFuncionario156, 'id'> {
+    id:string;
+    linguagemProgramacao: string;
+}
 
-
-
+const desenvolvedor : IDesenvolvedor = {
+    id: '1as1',
+    nome: 'felipe',
+    salario: 2600,
+    linguagemProgramacao: 'php',
+}
 
 
 
