@@ -1191,27 +1191,104 @@ function mover(animal: IAnimal2){
     }
 }
 
-mover(new Peixe('peixe', 'azul'));
-mover(new Passaro('passaro', 'vermelho'));
+// mover(new Peixe('peixe', 'azul'));
+// mover(new Passaro('passaro', 'vermelho'));
+
+//TYPE CASTING
+
+const nome: unknown = 'felipe';
+// console.log((nome as string).toUpperCase());
+
+//segunda forma de usar o type casting
+const carro1997: string = 'corolla';
+
+const tamanhoString: number = (<string>carro1997).length;
+// console.log('o tamanho da string é:',tamanhoString);
+
+//TYPE ASSERTION
+
+function exibirPrecoFinal(preco: number, desconto: number, formato: boolean): number | string{
+    const precoComdesconto = preco * (1 - desconto);
+
+    return formato ? `R$ ${precoComdesconto}` : precoComdesconto;
+}
+
+const descontoFinal =
+    exibirPrecoFinal(100, 0.05, true) as string;
+
+const descontoFinal2 =
+    <number>exibirPrecoFinal(100, 0.05, false);
+
+// console.log(typeof (descontoFinal));
+// console.log(typeof (descontoFinal2));
+
+type Humano97 = {
+    nome: string;
+    idade: number;
+    idioma: string;
+}
+
+const humano97 = {
+    idade: 26,
+    idioma: 'portugues',
+};
+
+// const humano97_02 : Humano97 = humano97;//assime ele verifica se tem algum erro
+// console.log(humano97_02);
+
+
+// CONDITIONAL TYPES
+
+type Pessoa97_02 = {
+    nome: string;
+    idade: number;
+    endereco: string;
+};
+
+type Empresa = {
+    nome: string;
+    cnpj: number;
+};
+
+type EnderecoPessoa = {
+    enderecoSecundario: string;
+    cidade: string;
+    pais: string;
+};
+
+type EnderecoEmpresa = {
+    localizacao: 'rua' | 'avenida' | 'praça';
+};
+
+type EnderecoFinal<T> = T extends {endereco: string} ? EnderecoPessoa : EnderecoEmpresa;
+
+const enderecoPessoa: EnderecoFinal<Pessoa97_02> = {
+    enderecoSecundario: 'rua 2',
+    cidade: 'itapeva',
+    pais: 'brasil',
+};
+
+const enderecoEmpresa: EnderecoFinal<Empresa> = {
+  localizacao: 'avenida',
+};
+
+// console.log(enderecoEmpresa);
+// console.log(enderecoPessoa);
+
+
+type FormatoArquivos = 'png' | 'jpg'| 'gif' | 'svg' | 'mp4' | 'mp3';
+
+type FiltrarArquivoAudio<T> = T extends 'mp4' | 'mp3' ? T : never;
+
+type ArquivoAudio = FiltrarArquivoAudio<FormatoArquivos>;
+
+const arquivoAudio: ArquivoAudio = 'mp4';
+
+// console.log(arquivoAudio);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// MAPPEDTYPES
 
 
 

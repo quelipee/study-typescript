@@ -698,5 +698,34 @@ function mover(animal) {
         voar(animal.grupo);
     }
 }
-mover(new Peixe('peixe', 'azul'));
-mover(new Passaro('passaro', 'vermelho'));
+// mover(new Peixe('peixe', 'azul'));
+// mover(new Passaro('passaro', 'vermelho'));
+//TYPE CASTING
+const nome = 'felipe';
+// console.log((nome as string).toUpperCase());
+//segunda forma de usar o type casting
+const carro1997 = 'corolla';
+const tamanhoString = carro1997.length;
+// console.log('o tamanho da string é:',tamanhoString);
+//TYPE ASSERTION
+function exibirPrecoFinal(preco, desconto, formato) {
+    const precoComdesconto = preco * (1 - desconto);
+    return formato ? `R$ ${precoComdesconto}` : precoComdesconto;
+}
+const descontoFinal = exibirPrecoFinal(100, 0.05, true);
+const descontoFinal2 = exibirPrecoFinal(100, 0.05, false);
+const humano97 = {
+    idade: 26,
+    idioma: 'portugues',
+};
+const enderecoPessoa = {
+    enderecoSecundario: 'rua 2',
+    cidade: 'itapeva',
+    pais: 'brasil',
+};
+const enderecoEmpresa = {
+    localizacao: 'avenida',
+};
+const arquivoAudio = 'mp4';
+// console.log(arquivoAudio);
+// MAPPEDTYPES

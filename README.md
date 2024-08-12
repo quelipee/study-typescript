@@ -1364,3 +1364,60 @@ mover(new Passaro('passaro', 'vermelho'));
 ````
 
 ![img_81.png](img/img_81.png)
+
+## TYPE CASTING
+
+````ts
+const nome: unknown = 'felipe';
+console.log((nome as string).toUpperCase());
+````
+![img_82.png](img/img_82.png)
+
+````ts
+//segunda forma de usar o type casting
+const carro1997: string = 'corolla';
+
+const tamanhoString: number = (<string>carro1997).length;
+console.log('o tamanho da string é:',tamanhoString);
+````
+![img_83.png](img/img_83.png)
+
+## TYPE ASSERTION
+
+````ts
+function exibirPrecoFinal(preco: number, desconto: number, formato: boolean): number | string{
+    const precoComdesconto = preco * (1 - desconto);
+
+    return formato ? `R$ ${precoComdesconto}` : precoComdesconto;
+}
+
+const descontoFinal =
+    exibirPrecoFinal(100, 0.05, true) as string;
+
+const descontoFinal2 =
+    <number>exibirPrecoFinal(100, 0.05, false);
+
+console.log(typeof (descontoFinal));
+console.log(typeof (descontoFinal2));
+````
+![img_84.png](img/img_84.png)
+
+## CONDITIONAL TYPES
+
+````ts
+type FormatoArquivos = 'png' | 'jpg'| 'gif' | 'svg' | 'mp4' | 'mp3';
+
+type FiltrarArquivoAudio<T> = T extends 'mp4' | 'mp3' ? T : never;
+
+type ArquivoAudio = FiltrarArquivoAudio<FormatoArquivos>;
+
+const arquivoAudio: ArquivoAudio = 'mp4';
+
+console.log(arquivoAudio);
+````
+![img_85.png](img/img_85.png)
+
+## MAPPEDTYPES
+
+
+
