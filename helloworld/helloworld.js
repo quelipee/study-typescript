@@ -776,5 +776,77 @@ function exibirElementos(array) {
 }
 let number = [1, 2, 3, 4, 5];
 let state = ['São Paulo', 'Rio de Janeiro', 'Minas Gerais', 'Paraná', 'Santa Catarina'];
-exibirElementos(number);
-exibirElementos(state);
+function obterPessoaIdadeMaiorQue(pessoas, idade) {
+    return pessoas.filter(pessoa => pessoa.idade > idade);
+}
+const pessoas1222 = [
+    { nome: 'felipe', idade: 26 },
+    { nome: 'mario', idade: 36 },
+    { nome: 'regina', idade: 20 },
+    { nome: 'aline', idade: 24 },
+];
+const pessoasComIdadeMaiorQue25 = obterPessoaIdadeMaiorQue(pessoas1222, 25);
+// console.log(pessoasComIdadeMaiorQue25);
+function juntarObjetos(objeto1, objeto2) {
+    return {
+        ...objeto1,
+        ...objeto2,
+    };
+}
+const pessoaasd = juntarObjetos({ nome: 'felipe' }, { idade: 26 });
+const pessoaasd2 = juntarObjetos({ nome: 'felipe' }, 36);
+//maneira correta
+function juntarObjetos2(objeto1, objeto2) {
+    return {
+        ...objeto1,
+        ...objeto2,
+    };
+}
+const pessoaasd3 = juntarObjetos2({ nome: 'felipe' }, { idade: 26 });
+// errado
+// function prop<T, K>(objeto: T, chave: K): T & K {
+//     return objeto[chave];
+// }
+function prop2(objeto, chave) {
+    return objeto[chave];
+}
+const psaas = prop2({ nome: 'felipe' }, 'nome');
+// console.log(psaas);
+/*
+* GENERICS CLASS
+* */
+class Estudante2 {
+    setValor(id, nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+    retornarValor() {
+        console.log(`id do estudante: ${this.id}, nome do estudante: ${this.nome}`);
+    }
+}
+const est = new Estudante2();
+const est2 = new Estudante2();
+est.setValor(101, 'felipe');
+// est.retornarValor();
+est2.setValor('das', 'renato');
+async function fetchJson(url) {
+    const response = await fetch(url);
+    const headers = {};
+    response.headers.forEach((value, key) => {
+        headers[key] = value;
+    });
+    const data = await response.json();
+    return {
+        data: data,
+        status: response.status,
+        statusText: response.statusText,
+        headers
+    };
+}
+(async () => {
+    const response = await fetchJson('https://jsonplaceholder.typicode.com/todos/1');
+    // console.log(response.data);
+})();
+/*
+* MODULES
+* */

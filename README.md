@@ -1530,3 +1530,141 @@ exibirElementos<number>(number);
 exibirElementos<string>(state);
 ````
 ![img_88.png](img/img_88.png)
+
+## GENERICS CONSTRAINTS
+````ts
+interface Pessoa97_07 {
+    nome: string;
+    idade: number;
+}
+
+function obterPessoaIdadeMaiorQue<T extends Pessoa97_07>(pessoas: T[], idade: number) : T[]{
+    return pessoas.filter(pessoa => pessoa.idade > idade);
+}
+
+const pessoas1222: Pessoa97_07[] = [
+    {nome: 'felipe', idade: 26},
+    {nome: 'mario', idade: 36},
+    {nome: 'regina', idade: 20},
+    {nome: 'aline', idade: 24},
+];
+
+const pessoasComIdadeMaiorQue25 = obterPessoaIdadeMaiorQue(pessoas1222,25);
+
+console.log(pessoasComIdadeMaiorQue25);
+````
+![img_89.png](img/img_89.png)
+
+## GENERICS CONSTRAINTS
+````ts
+// errado
+// function prop<T, K>(objeto: T, chave: K): T & K {
+//     return objeto[chave];
+// }
+
+function prop2<T, K extends keyof T>(objeto: T, chave: K) {
+    return objeto[chave];
+}
+
+const psaas = prop2(
+    { nome: 'felipe'}, 'nome'
+);
+console.log(psaas);
+````
+
+#### ex2
+````ts
+function juntarObjetos<T, U>(objeto1: T, objeto2: U) : T & U {
+    return {
+        ...objeto1,
+        ...objeto2,
+    }
+}
+
+const pessoaasd = juntarObjetos(
+    { nome: 'felipe' },
+    { idade: 26 }
+);
+
+// error
+const pessoaasd2 = juntarObjetos(
+    { nome: 'felipe' },
+    36
+);
+
+
+//maneira correta
+function juntarObjetos2<T extends object, U extends object>(objeto1: T, objeto2: U) : T & U {
+    return {
+        ...objeto1,
+        ...objeto2,
+    }
+}
+
+const pessoaasd3 = juntarObjetos2(
+    { nome: 'felipe' },
+    { idade: 26 }
+);
+````
+
+## GENERICS CLASS
+````ts
+class Estudante2<T, U>{
+    private id: T;
+    private nome: U;
+
+    setValor(id: T, nome: U): void {
+        this.id = id;
+        this.nome = nome;
+    }
+
+    retornarValor():void{
+        console.log(`id do estudante: ${this.id}, nome do estudante: ${this.nome}`);
+    }
+}
+
+const est = new Estudante2<number,string>();
+const est2 = new Estudante2<string,string>();
+
+est.setValor(101,'felipe');
+est.retornarValor();
+est2.setValor('das','renato');
+est2.retornarValor();
+````
+![img_90.png](img/img_90.png)
+
+## GENERICS INTERFACES
+````ts
+interface FetchResponse<T>{
+    data: T,
+    status: number,
+    statusText: string,
+    headers: Record<string, string>,
+}
+
+async function fetchJson<T>(url:string) : Promise<FetchResponse<T>> {
+    const response = await fetch(url);
+    const headers: Record<string, string> = {};
+
+    response.headers.forEach((value, key) => {
+        headers[key] = value;
+    });
+
+    const data = await response.json();
+
+    return {
+        data: <T>data,
+        status: response.status,
+        statusText: response.statusText,
+        headers
+    };
+}
+
+(async () => {
+    const response = await fetchJson<{ title: string }>('https://jsonplaceholder.typicode.com/todos/1')
+    console.log(response.data);
+})();
+````
+![img_91.png](img/img_91.png)
+
+## MODULES
