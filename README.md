@@ -1419,5 +1419,114 @@ console.log(arquivoAudio);
 
 ## MAPPEDTYPES
 
+````ts
+type Usuario97 = {
+    nome: string;
+    endereco: string;
+    telefone: string;
+    idade: number;
+    apelido: string;
+}
 
 
+type UsuarioMappedType = {
+    [P in keyof Usuario97]?: Usuario97[P];
+};
+
+const usuarioMapped: UsuarioMappedType = {
+    nome: 'felipe',
+}
+
+console.log(usuarioMapped);
+````
+![img_86.png](img/img_86.png)
+
+## SATISFIES OPERATOR
+
+````ts
+type Connection = {};
+
+declare function createConnection(
+    host: string,
+    port: string,
+    reconnect: boolean,
+    poolsize: number,
+): Connection;
+
+type Configuration = {
+    host: string,
+    port: string | number,
+    tryReconnect: boolean | (() => boolean),
+    poolSize?: number,
+};
+
+const config = {
+    host:'localhost',
+    port:5000,
+    tryReconnect: () => true,
+    poolSize:10,
+} satisfies  Configuration;
+
+function connect(){
+    let { host, port, tryReconnect} = config;
+
+    createConnection(host, `${port}`, tryReconnect(), 10);
+}
+````
+
+### exemplo
+
+````ts
+type Cidade = NomeCidade | CidadeCordenadas;
+
+type NomeCidade = 'Rio de Janeiro' | 'São Paulo' | 'Salvador' | 'Belo Horizonte';
+
+type CidadeCordenadas = {
+    x: number,
+    y: number,
+}
+
+type Pessoa97_97 = {
+    localNascimento: Cidade,
+    residenciaAtual: Cidade,
+}
+
+const pessoa97_97 = {
+    localNascimento: 'São Paulo',
+    residenciaAtual: {x:10,y:20},
+} satisfies Pessoa97_97
+````
+
+## GENERICS
+
+````ts
+function retornarElementosRandomicos<T>(items : T[]) : T {
+    let itemRandomico = Math.floor(Math.random() * items.length);
+    return items[itemRandomico];
+};
+
+let numeros = [1,2,3,4,5,6,7,8,9,10];
+let numerosRandomicos = retornarElementosRandomicos<number>(numeros);
+console.log(numerosRandomicos);
+
+let estados = ['São Paulo','Rio de Janeiro','Minas Gerais','Paraná','Santa Catarina'];
+let estadosRandomicos = retornarElementosRandomicos<string>(estados);
+console.log(estadosRandomicos);
+````
+![img_87.png](img/img_87.png)
+
+#### ex2
+````ts
+function exibirElementos<T>(array: T[]) :void{
+    array.forEach(element => {
+        console.log(element);
+    })
+}
+
+let number: number[] = [1,2,3,4,5];
+let state: string[] = ['São Paulo','Rio de Janeiro','Minas Gerais','Paraná','Santa Catarina'];
+
+exibirElementos<number>(number);
+exibirElementos<string>(state);
+````
+![img_88.png](img/img_88.png)

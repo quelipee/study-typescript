@@ -727,5 +727,54 @@ const enderecoEmpresa = {
     localizacao: 'avenida',
 };
 const arquivoAudio = 'mp4';
-// console.log(arquivoAudio);
-// MAPPEDTYPES
+const usuarioMapped = {
+    nome: 'felipe',
+};
+const artigo97 = {
+    autor: 'dsa',
+    titulo: 'dsada',
+    preco: 100,
+};
+const livro97 = {
+    autor: 'boris',
+    numeroPaginas: 0,
+    preco: 10,
+    titulo: 'programm'
+};
+const pessoa97_97 = {
+    localNascimento: 'São Paulo',
+    residenciaAtual: { x: 10, y: 20 },
+};
+const config = {
+    host: 'localhost',
+    port: 5000,
+    tryReconnect: () => true,
+    poolSize: 10,
+};
+function connect() {
+    let { host, port, tryReconnect } = config;
+    createConnection(host, `${port}`, tryReconnect(), 10);
+}
+/*
+* GENERICS
+* */
+function retornarElementosRandomicos(items) {
+    let itemRandomico = Math.floor(Math.random() * items.length);
+    return items[itemRandomico];
+}
+;
+let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let numerosRandomicos = retornarElementosRandomicos(numeros);
+// console.log(numerosRandomicos);
+let estados = ['São Paulo', 'Rio de Janeiro', 'Minas Gerais', 'Paraná', 'Santa Catarina'];
+let estadosRandomicos = retornarElementosRandomicos(estados);
+// console.log(estadosRandomicos);
+function exibirElementos(array) {
+    array.forEach(element => {
+        console.log(element);
+    });
+}
+let number = [1, 2, 3, 4, 5];
+let state = ['São Paulo', 'Rio de Janeiro', 'Minas Gerais', 'Paraná', 'Santa Catarina'];
+exibirElementos(number);
+exibirElementos(state);

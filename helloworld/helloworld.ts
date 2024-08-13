@@ -1290,19 +1290,133 @@ const arquivoAudio: ArquivoAudio = 'mp4';
 
 // MAPPEDTYPES
 
+type Usuario97 = {
+    nome: string;
+    endereco: string;
+    telefone: string;
+    idade: number;
+    apelido: string;
+}
+
+type UsuarioMappedType = {
+    [P in keyof Usuario97]?: Usuario97[P];
+};
+
+const usuarioMapped: UsuarioMappedType = {
+    nome: 'felipe',
+}
+
+//////
+interface ILivro {
+    titulo: string;
+    autor: string | null;
+    preco: number;
+    numeroPaginas: number;
+}
+
+type Artigo = Omit<ILivro, 'numeroPaginas'>;
+
+const artigo97 : Artigo = {
+    autor:'dsa',
+    titulo:'dsada',
+    preco:100,
+}
+type LivroModelo = Readonly<ILivro>
+
+const livro97: LivroModelo = {
+    autor:'boris',
+    numeroPaginas:0,
+    preco:10,
+    titulo: 'programm'
+}
+
+// livro97.autor = 'sua tia'; // nao pode alterar, somente leitura
+// console.log(artigo97);
+
+/*
+* SATISFIES OPERATOR
+* */
+
+type Cidade = NomeCidade | CidadeCordenadas;
+
+type NomeCidade = 'Rio de Janeiro' | 'São Paulo' | 'Salvador' | 'Belo Horizonte';
+
+type CidadeCordenadas = {
+    x: number,
+    y: number,
+}
+
+type Pessoa97_97 = {
+    localNascimento: Cidade,
+    residenciaAtual: Cidade,
+}
+
+const pessoa97_97 = {
+    localNascimento: 'São Paulo',
+    residenciaAtual: {x:10,y:20},
+} satisfies Pessoa97_97
+
+// console.log(pessoa97_97.localNascimento.toUpperCase());
 
 
+type Connection = {};
+
+declare function createConnection(
+    host: string,
+    port: string,
+    reconnect: boolean,
+    poolsize: number,
+): Connection;
+
+type Configuration = {
+    host: string,
+    port: string | number,
+    tryReconnect: boolean | (() => boolean),
+    poolSize?: number,
+};
+
+const config = {
+    host:'localhost',
+    port:5000,
+    tryReconnect: () => true,
+    poolSize:10,
+} satisfies  Configuration;
+
+function connect(){
+    let { host, port, tryReconnect} = config;
+
+    createConnection(host, `${port}`, tryReconnect(), 10);
+}
+
+/*
+* GENERICS
+* */
+
+function retornarElementosRandomicos<T>(items : T[]) : T {
+    let itemRandomico = Math.floor(Math.random() * items.length);
+    return items[itemRandomico];
+};
+
+let numeros = [1,2,3,4,5,6,7,8,9,10];
+let numerosRandomicos = retornarElementosRandomicos<number>(numeros);
+// console.log(numerosRandomicos);
+
+let estados = ['São Paulo','Rio de Janeiro','Minas Gerais','Paraná','Santa Catarina'];
+let estadosRandomicos = retornarElementosRandomicos<string>(estados);
+// console.log(estadosRandomicos);
 
 
+function exibirElementos<T>(array: T[]) :void{
+    array.forEach(element => {
+        console.log(element);
+    })
+}
 
+let number: number[] = [1,2,3,4,5];
+let state: string[] = ['São Paulo','Rio de Janeiro','Minas Gerais','Paraná','Santa Catarina'];
 
-
-
-
-
-
-
-
+exibirElementos<number>(number);
+exibirElementos<string>(state);
 
 
 
