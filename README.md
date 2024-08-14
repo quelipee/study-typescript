@@ -1668,3 +1668,28 @@ async function fetchJson<T>(url:string) : Promise<FetchResponse<T>> {
 ![img_91.png](img/img_91.png)
 
 ## MODULES
+
+````ts
+index.ts
+import { Validator} from "./validator";
+import { EmailValidator} from "./email.validator";
+import { ZipCodeValidator} from "./zipcode-validator";
+
+export { Validator, EmailValidator, ZipCodeValidator };
+````
+
+````ts
+main.ts
+
+import {EmailValidator, ZipCodeValidator} from "./validators";
+
+let email = 'felipe@gmail.com';
+let validator = new EmailValidator();
+let result = validator.isValid(email);
+
+let validator2 = new ZipCodeValidator();
+let result2 = validator2.isValid('12345');
+console.log(result2);
+
+````
+![img_92.png](img/img_92.png)
